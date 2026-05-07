@@ -1,25 +1,30 @@
 #include <iostream>
 using namespace std;
 
-// Sum
-int calc(int a, int b, int c) {
-    return a + b + c;
-}
+class Calculator {
+public:
+    // Sum of three numbers
+    int calc(int a, int b, int c) {
+        return a + b + c;
+    }
 
-// Area of rectangle
-float calc(int l, int b) {
-    return l * b;
-}
+    // Area of rectangle
+    float calc(int l, int b) {
+        return l * b;
+    }
 
-// Volume of cube
-int calc(int s) {
-    return s * s * s;
-}
+    // Volume of cube
+    int calc(int s) {
+        return s * s * s;
+    }
+};
 
 int main() {
-    cout << "Sum = " << calc(5, 3, 4) << endl;
-    cout << "Area = " << calc(4, 6) << endl;  // int values
-    cout << "Volume = " << calc(3) << endl;
+    Calculator obj;  // Create object
+
+    cout << "Sum = " << obj.calc(5, 3, 4) << endl;
+    cout << "Area = " << obj.calc(4, 6) << endl;
+    cout << "Volume = " << obj.calc(3) << endl;
 
     return 0;
 }

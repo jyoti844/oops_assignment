@@ -1,30 +1,39 @@
 #include <iostream>
 using namespace std;
 
-// Call by Value
-void valueSwap(int a, int b) {
-    int temp = a;
-    a = b;
-    b = temp;
-    cout << "Inside Call by Value: a=" << a << " b=" << b << endl;
-}
+class Student {
+private:
+    int id;
+    static int count;   // static data member
 
-// Call by Reference
-void refSwap(int &a, int &b) {
-    int temp = a;
-    a = b;
-    b = temp;
-    cout << "Inside Call by Reference: a=" << a << " b=" << b << endl;
-}
+public:
+    // Constructor
+    Student() {
+        count++;
+        id = count;
+    }
+
+    void display() {
+        cout << "Student ID: " << id << endl;
+    }
+
+    // Static member function
+    static void showCount() {
+        cout << "Total Students: " << count << endl;
+    }
+};
+
+// Definition of static data member
+int Student::count = 0;
 
 int main() {
-    int x = 10, y = 20;
+    Student s1, s2, s3;
 
-    valueSwap(x, y);
-    cout << "After Call by Value: x=" << x << " y=" << y << endl;
+    s1.display();
+    s2.display();
+    s3.display();
 
-    refSwap(x, y);
-    cout << "After Call by Reference: x=" << x << " y=" << y << endl;
+    Student::showCount();
 
     return 0;
 }

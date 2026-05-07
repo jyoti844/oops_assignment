@@ -1,19 +1,31 @@
 #include <iostream>
 using namespace std;
 
-// Function taking array as argument
-int sumArray(int arr[], int n) {
-    int sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += arr[i];
+class Student {
+private:
+    int marks;
+
+public:
+    // Constructor for dynamic initialization
+    Student(int m) {
+        marks = m;
     }
-    return sum;
-}
+
+    void display() {
+        cout << "Marks = " << marks << endl;
+    }
+};
 
 int main() {
-    int arr[5] = {1, 2, 3, 4, 5};
+    int x;
 
-    cout << "Sum of array = " << sumArray(arr, 5);
+    cout << "Enter marks: ";
+    cin >> x;
+
+    // Value given at runtime
+    Student s(x);
+
+    s.display();
 
     return 0;
 }
